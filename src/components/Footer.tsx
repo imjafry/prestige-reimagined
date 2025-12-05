@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Instagram,
@@ -9,40 +9,40 @@ import {
 } from "lucide-react";
 
 const quickMenu = [
-  "About Us",
-  "Residential",
-  "Commercial",
-  "Videos",
-  "Events",
-  "News Corner",
-  "Blogs",
-  "FAQs",
-  "Awards",
-  "Careers",
-  "Become a Channel Partner",
-  "Falcon News",
+  { label: "About Us", href: "/" },
+  { label: "Residential", href: "/residential" },
+  { label: "Commercial", href: "/commercial" },
+  { label: "Retail", href: "/retail" },
+  { label: "Videos", href: "#" },
+  { label: "Events", href: "#" },
+  { label: "News Corner", href: "#" },
+  { label: "Blogs", href: "#" },
+  { label: "FAQs", href: "#" },
+  { label: "Awards", href: "#" },
+  { label: "Careers", href: "#", external: true },
+  { label: "Falcon News", href: "#", external: true },
 ];
 
 const quickLinks = [
-  "Customer Portal",
-  "Crisil Rating",
-  "Referral",
-  "EMI Calculator",
-  "Interior Design",
-  "NRIs",
-  "Privacy Policy",
-  "Terms & Conditions",
-  "Disclaimer",
-  "Public Notices",
+  { label: "Customer Portal", href: "#", external: true },
+  { label: "Crisil Rating", href: "#" },
+  { label: "Referral", href: "#" },
+  { label: "EMI Calculator", href: "#" },
+  { label: "Interior Design", href: "#", external: true },
+  { label: "NRIs", href: "#" },
+  { label: "Privacy Policy", href: "#" },
+  { label: "Terms & Conditions", href: "#" },
+  { label: "Disclaimer", href: "#" },
+  { label: "Public Notices", href: "#" },
 ];
 
 const investors = [
-  "Investors",
-  "Financial Performance",
-  "Share Holding Pattern",
-  "AGM Notice",
-  "Annual Report",
-  "ESG",
+  { label: "Investors", href: "#" },
+  { label: "Financial Performance", href: "#" },
+  { label: "Share Holding Pattern", href: "#" },
+  { label: "AGM Notice", href: "#", external: true },
+  { label: "Annual Report", href: "#", external: true },
+  { label: "ESG", href: "#" },
 ];
 
 const socialLinks = [
@@ -117,16 +117,28 @@ export const Footer = () => {
             <h3 className="font-display text-xl text-gold mb-6">Quick Menu</h3>
             <ul className="space-y-2 text-sm">
               {quickMenu.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-gold transition-colors inline-flex items-center gap-1 group"
-                  >
-                    {item}
-                    {item === "Careers" || item === "Falcon News" ? (
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    ) : null}
-                  </a>
+                <li key={item.label}>
+                  {item.href.startsWith("/") ? (
+                    <Link
+                      to={item.href}
+                      className="hover:text-gold transition-colors inline-flex items-center gap-1 group"
+                    >
+                      {item.label}
+                      {item.external && (
+                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      )}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="hover:text-gold transition-colors inline-flex items-center gap-1 group"
+                    >
+                      {item.label}
+                      {item.external && (
+                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      )}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -137,15 +149,15 @@ export const Footer = () => {
             <h3 className="font-display text-xl text-gold mb-6">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               {quickLinks.map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="hover:text-gold transition-colors inline-flex items-center gap-1 group"
                   >
-                    {item}
-                    {item === "Customer Portal" || item === "Interior Design" ? (
+                    {item.label}
+                    {item.external && (
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    ) : null}
+                    )}
                   </a>
                 </li>
               ))}
@@ -157,15 +169,15 @@ export const Footer = () => {
             <h3 className="font-display text-xl text-gold mb-6">Investors</h3>
             <ul className="space-y-2 text-sm">
               {investors.map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="hover:text-gold transition-colors inline-flex items-center gap-1 group"
                   >
-                    {item}
-                    {item === "AGM Notice" || item === "Annual Report" ? (
+                    {item.label}
+                    {item.external && (
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    ) : null}
+                    )}
                   </a>
                 </li>
               ))}
