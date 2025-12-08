@@ -50,10 +50,6 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.badge}
           </span>
         )}
-        {/* Logo overlay */}
-        <div className="absolute bottom-3 left-3 bg-background/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-display text-gold">
-          PRESTIGE
-        </div>
       </div>
 
       {/* Content */}

@@ -7,17 +7,17 @@ import projectCommercial from "@/assets/project-commercial.jpg";
 
 const residentials = [
   {
-    title: "Prestige Lakeside Habitat",
+    title: "Meridian Lakeside Habitat",
     type: "Large Townships",
     image: projectTownship,
   },
   {
-    title: "Prestige Falcon City",
+    title: "Meridian Falcon City",
     type: "Integrated Townships",
     image: projectHotel,
   },
   {
-    title: "Prestige Jindal City",
+    title: "Meridian Jindal City",
     type: "Large Townships",
     image: projectCommercial,
   },
@@ -54,8 +54,7 @@ export const ResidentialSection = () => {
             </h2>
             <div className="h-12 w-px bg-gold/40" />
             <p className="text-muted-foreground max-w-xl">
-              Shaping the skylines of commercial business districts and techno
-              zones in India's major cities.
+              Shaping the skylines of commercial business districts in major cities of South East Asia and GCC.
             </p>
           </div>
           <div className="flex items-center gap-3">

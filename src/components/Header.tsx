@@ -8,10 +8,7 @@ const navItems = [
   { label: "ABOUT", href: "/" },
   { label: "RESIDENTIAL", href: "/residential" },
   { label: "COMMERCIAL", href: "/commercial" },
-  // { label: "RENTALS", href: "#rentals" },
-  // { label: "HOSPITALITY", href: "#hospitality" },
-  { label: "RETAIL", href: "/retail" },
-  // { label: "NRI", href: "#nri" },
+  { label: "HOSPITALITY & RETAIL", href: "/retail" },
 ];
 
 export const Header = () => {
@@ -32,19 +29,7 @@ export const Header = () => {
             <div 
             className="w-24 lg:w-32 h-16 lg:h-32 flex items-center justify-center relative overflow-hidden"
             >
-              {/* <div className="text-center px-2">
-                <div className="text-gold text-xs font-display italic">✦</div>
-                <div className="text-primary-foreground font-display text-lg lg:text-xl font-semibold leading-none">
-                  Prestige
-                </div>
-                <div className="text-primary-foreground font-display text-[10px] lg:text-xs tracking-wider">
-                  GROUP
-                </div>
-                <div className="text-primary-foreground/70 text-[6px] lg:text-[8px] italic">
-                  Add Prestige to your life
-                </div>
-              </div> */}
-              <img src="https://d1t2fddy6amcvs.cloudfront.net/images/logo.svg" />
+              <img src="https://d1t2fddy6amcvs.cloudfront.net/images/logo.svg" alt="Meridian Real Estate & Construction" />
             </div>
           </Link>
 

@@ -1,25 +1,19 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
-import leader1 from "@/assets/leader-1.jpg";
-import leader2 from "@/assets/leader-2.jpg";
-import leader3 from "@/assets/leader-3.jpg";
+import leader1 from "@/assets/team/t1.png";
+import leader2 from "@/assets/team/t2.png";
 
 const leaders = [
   {
-    name: "Irfan Razack",
-    title: "Chairman & Managing Director",
+    name: "Mouli Chaudhary",
+    title: "Chairman & Executive Director",
     image: leader1,
   },
   {
-    name: "Rezwan Razack",
-    title: "Joint Managing Director",
+    name: "Abhishek Chaudhary",
+    title: "Non Executive Director",
     image: leader2,
-  },
-  {
-    name: "Noaman Razack",
-    title: "Whole-Time Director",
-    image: leader3,
   },
 ];
 
@@ -46,21 +40,11 @@ export const LeadershipSection = () => {
           transition={{ duration: 0.6 }}
           className="flex items-end justify-between mb-10"
         >
-          <h2 className="section-subtitle">Board of Directors</h2>
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={prevSlide}
-              className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-background transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5 text-foreground" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-background transition-colors"
-            >
-              <ChevronRight className="w-5 h-5 text-foreground" />
-            </button>
+          <div className="flex flex-col items-center w-full mb-5">
+            <p className="section-label mb-2">THE LEADERSHIP</p>
+            <h2 className="section-subtitle">TEAM</h2>
           </div>
+         
         </motion.div>
 
         {/* Cards Grid */}
@@ -68,7 +52,7 @@ export const LeadershipSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {leaders.map((leader, index) => (
             <motion.div
@@ -96,6 +80,7 @@ export const LeadershipSection = () => {
                   {leader.name}
                 </h3>
                 <p className="text-sm text-muted-foreground">{leader.title}</p>
+                <p className="text-sm text-muted-foreground">Member of Management Board</p>
               </div>
             </motion.div>
           ))}

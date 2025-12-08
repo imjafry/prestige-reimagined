@@ -2,19 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 39, suffix: "+", label: "Years of Excellence" },
-  { value: 300, suffix: "+", label: "Projects Completed" },
-  { value: 190, suffix: "+", label: "Mn. Sq. Ft. Delivered" },
-  { value: 170, suffix: "+", label: "Ongoing Projects" },
+  { value: 50, suffix: "+", label: "Years of Excellence" },
+  { value: 6500, suffix: "+", label: "Projects Completed" },
+  { value: 900, suffix: "+", label: "Million Sq. Ft. Delivered" },
+  { value: 240, suffix: "+", label: "Million Sq. Ft. Underway" },
+  { value: 12, suffix: "+", label: "Billion Total Project Value (FY25-26)", prefix: "" },
 ];
 
 const CountUp = ({
   end,
   suffix,
+  prefix = "",
   duration = 2000,
 }: {
   end: number;
   suffix: string;
+  prefix?: string;
   duration?: number;
 }) => {
   const [count, setCount] = useState(0);
@@ -41,6 +44,7 @@ const CountUp = ({
 
   return (
     <span ref={ref}>
+      {prefix}
       {count}
       {suffix}
     </span>
@@ -63,7 +67,7 @@ export const AboutSection = () => {
           <h2 className="font-display text-3xl md:text-4xl text-gold mb-4">
             About us
           </h2>
-          <p className="section-label mb-6">ABOUT PRESTIGE GROUP</p>
+          <p className="section-label mb-6">ABOUT MERIDIAN REAL ESTATE & CONSTRUCTION</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -73,46 +77,18 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* CRISIL Badge */}
-            <div className="flex items-center gap-4 mb-8 pb-8 border-b border-border">
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-[#e31837]">
-                  CRISIL
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  An S&P Global Company
-                </span>
-              </div>
-              <div className="h-12 w-px bg-gold/40" />
-              <p className="font-display text-xl lg:text-2xl text-foreground leading-relaxed">
-                Only CRISIL DA1+ rated Real Estate Developer in India
-              </p>
-            </div>
-
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                Over the last decade, the Prestige Group has firmly established
-                itself as one of the leading and most successful developers of
-                real estate in India by imprinting its indelible mark across all
-                asset classes. Founded in 1986, a leap that has been inspired by
-                CMD Irfan Razack and marshaled by his brothers Rezwan Razack and
-                Noaman Razack.
+                Over the last five decades, Meridian Real Estate & Construction, the flagship realty arm of privately held international business group, has firmly established itself as one of the leading and most respected developers across India, Singapore and the GCC (Qatar, Kuwait, Oman, KSA, UAE, Bahrain).
               </p>
               <p>
-                The company has diversified over time into a number of
-                related/non-related services, each of them spearheaded by
-                individuals with adroit capacity. Services are as varied as the
-                interior designing done by Morph Design Company (MDC) and the
-                redefinition of elegance and suave in men's formal dressing by
-                Prestige Fashions (P) Ltd. They are also the only developers in
-                South India to boast of such a widely diverse portfolio covering
-                the residential, commercial, retail, leisure and hospitality
-                segments.
+                Founded in the early 1970s by C.V. Narayanan, the Meridian has been driven by a professional leadership team with deep experience in real estate, infrastructure and investments. Over time, the Group has strategically diversified into complementary businesses, each led by seasoned specialists. Its portfolio today in real estate spans interior design & fit-outs, facilities management, engineering services, and property advisory, alongside hospitality and retail ventures. This integrated ecosystem allows Meridian to offer end-to-end solutions, from land acquisition and master planning to construction, interiors and long-term asset management.
               </p>
               <p>
-                The Prestige Group today has become a name that is synonymous
-                with innovation. The company has pioneered many landmark
-                developments and introduced many firsts to South India.
+                Meridian delivers a balanced mix of residential, commercial, retail, leisure and hospitality developments, including premium housing communities, integrated townships, Grade-A office spaces, destination malls and mixed-use developments.
+              </p>
+              <p>
+                The Meridian has successfully completed 6,500+ projects spanning a development area of 900+ million sqft and has 167 ongoing projects across segments, with a development area of 240+ million sqft currently under development. Across its portfolio, Meridian oversees a total project value exceeding $12 billion and holds a land bank of over 3500 acres as of July-18. The company has been graded CRISIL DA1+ and enjoys a credit rating of ICRA A+.
               </p>
             </div>
           </motion.div>
@@ -133,7 +109,7 @@ export const AboutSection = () => {
                 className="text-center lg:text-left"
               >
                 <div className="font-display text-4xl lg:text-5xl text-foreground mb-2">
-                  <CountUp end={stat.value} suffix={stat.suffix} />
+                  <CountUp end={stat.value} suffix={stat.suffix} prefix={stat.prefix || ""} />
                 </div>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </motion.div>
@@ -144,3 +120,4 @@ export const AboutSection = () => {
     </section>
   );
 };
+
