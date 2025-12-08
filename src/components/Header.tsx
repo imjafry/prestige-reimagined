@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "ABOUT", href: "/" },
@@ -27,9 +28,9 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <div 
-            className="w-24 lg:w-32 h-16 lg:h-32 flex items-center justify-center relative overflow-hidden"
+            className="w-24 lg:w-44 h-auto flex items-center justify-center relative overflow-hidden"
             >
-              <img src="https://d1t2fddy6amcvs.cloudfront.net/images/logo.svg" alt="Meridian Real Estate & Construction" />
+              <img src={logo} alt="Meridian Real Estate & Construction" />
             </div>
           </Link>
 
