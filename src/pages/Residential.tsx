@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { EnquireSidebar } from "@/components/EnquireSidebar";
+import { EnquiryFormSidebar } from "@/components/EnquiryFormSidebar";
+import { BookVisitSidebar } from "@/components/BookVisitSidebar";
 import { ProjectCard, Project } from "@/components/ProjectCard";
 import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { Button } from "@/components/ui/button";
@@ -526,6 +528,14 @@ const projects: Project[] = [
 
 const Residential = () => {
   const [selectedCountry, setSelectedCountry] = useState("all");
+  const [enquirySidebar, setEnquirySidebar] = useState<{ isOpen: boolean; project: Project | null }>({
+    isOpen: false,
+    project: null,
+  });
+  const [bookVisitSidebar, setBookVisitSidebar] = useState<{ isOpen: boolean; project: Project | null }>({
+    isOpen: false,
+    project: null,
+  });
 
   const filteredProjects =
     selectedCountry === "all"
@@ -533,6 +543,14 @@ const Residential = () => {
       : projects.filter((p) =>
           p.location.toLowerCase() === selectedCountry.toLowerCase()
         );
+
+  const handleEnquireClick = (project: Project) => {
+    setEnquirySidebar({ isOpen: true, project });
+  };
+
+  const handleBookVisitClick = (project: Project) => {
+    setBookVisitSidebar({ isOpen: true, project });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -551,21 +569,6 @@ const Residential = () => {
             Residential Projects
           </motion.h1>
 
-          {/* Custom Search Button */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-8"
-          >
-            <Button
-              variant="outline"
-              className="border-border text-foreground hover:bg-muted"
-            >
-              Custom Search
-            </Button>
-          </motion.div> */}
-
           {/* Content */}
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Sidebar */}
@@ -580,7 +583,13 @@ const Residential = () => {
             <div className="flex-1">
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} />
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    onEnquireClick={handleEnquireClick}
+                    onBookVisitClick={handleBookVisitClick}
+                  />
                 ))}
               </div>
               {filteredProjects.length === 0 && (
@@ -594,6 +603,21 @@ const Residential = () => {
       </main>
 
       <Footer />
+
+      {/* Enquiry Form Sidebar */}
+      <EnquiryFormSidebar
+        isOpen={enquirySidebar.isOpen}
+        onClose={() => setEnquirySidebar({ isOpen: false, project: null })}
+        projectTitle={enquirySidebar.project?.title}
+        projectPrice={enquirySidebar.project?.price}
+      />
+
+      {/* Book Visit Sidebar */}
+      <BookVisitSidebar
+        isOpen={bookVisitSidebar.isOpen}
+        onClose={() => setBookVisitSidebar({ isOpen: false, project: null })}
+        projectTitle={bookVisitSidebar.project?.title}
+      />
     </div>
   );
 };
