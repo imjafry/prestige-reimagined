@@ -4,6 +4,18 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "meridian-constructions.com"
+        }
+      ],
+      "destination": "https://www.meridian-constructions.com/:path*",
+      "permanent": true
+    }
   ]
 }
-
