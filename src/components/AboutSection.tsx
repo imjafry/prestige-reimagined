@@ -98,7 +98,7 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             
-            <div className="space-y-6 text-muted-foreground leading-relaxed" style={{ textAlign: 'justify' }}>
+            <div className="space-y-6 text-muted-foreground leading-relaxed" style={{ textAlign: 'left' }}>
               <p>
                 Over the last five decades, Meridian Real Estate & Construction, the flagship realty arm of privately held international business group, has firmly established itself as one of the leading and most respected developers across India, Singapore and the GCC (Qatar, Kuwait, Oman, KSA, UAE, Bahrain).
               </p>
