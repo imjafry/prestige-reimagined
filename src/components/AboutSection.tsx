@@ -73,7 +73,7 @@ export const AboutSection = () => {
           </h2>
           <p className="section-label mb-6">ABOUT MERIDIAN REAL ESTATE & CONSTRUCTION</p>
           {/* CRISIL Badge */}
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-[#e31837]">
                   CRISIL DA
@@ -82,11 +82,11 @@ export const AboutSection = () => {
                   An S&P Global Company
                 </span>
               </div>
-              {/* <div className="h-12 w-px bg-gold/40" />
+              <div className="h-12 w-px bg-gold/40" />
               <p className="font-display text-xl lg:text-2xl text-foreground leading-relaxed">
                 Only CRISIL DA1+ rated Real Estate Developer in India
-              </p> */}
-            </div>
+              </p>
+            </div> */}
 
         </motion.div>
 
